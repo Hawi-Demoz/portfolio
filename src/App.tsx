@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useState, lazy, Suspense } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BootSequence } from './components/BootSequence'
 import { Starfield } from './components/Starfield'
 import { Navigation } from './components/Navigation'
-import { StatusPanel } from './components/StatusPanel'
 import { HomeSection } from './components/sections/HomeSection'
 import { MissionSection } from './components/sections/MissionSection'
 import { AboutSection } from './components/sections/AboutSection'
@@ -17,9 +16,18 @@ import { useKonami } from './hooks/useKonami'
 import { useDeckReveal } from './hooks/useDeckReveal'
 import { NAV_MODULES, type SectionId } from './data/content'
 
-const Scene3D = lazy(() =>
-  import('./components/Scene3D').then((m) => ({ default: m.Scene3D })),
-)
+/** Subtle decorative page-turn divider between book chapters */
+function PageDivider({ folio }: { folio: string }) {
+  return (
+    <div className="relative mx-auto flex max-w-5xl items-center gap-5 px-[clamp(1.25rem,5vw,3.5rem)] py-1" aria-hidden>
+      <span className="flex-1 h-px bg-border/40" />
+      <span className="font-mono text-[8px] tracking-[0.26em] text-dim/60 uppercase shrink-0">
+        {folio}
+      </span>
+      <span className="flex-1 h-px bg-border/40" />
+    </div>
+  )
+}
 
 function sectionFromScroll(): SectionId {
   const ids = NAV_MODULES.map((m) => m.id)
@@ -83,23 +91,24 @@ export default function App() {
             open={menuOpen}
             onToggle={() => setMenuOpen((v) => !v)}
           />
-          <StatusPanel active={booted} />
 
           <main ref={mainRef}>
             <div className="relative min-h-screen overflow-hidden">
-              <Suspense fallback={null}>
-                <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[48%] xl:block">
-                  <Scene3D />
-                </div>
-              </Suspense>
               <HomeSection />
             </div>
+            <PageDivider folio="001 → 004" />
             <MissionSection />
+            <PageDivider folio="004 → 006" />
             <AboutSection />
+            <PageDivider folio="006 → 008" />
             <SkillsSection />
+            <PageDivider folio="008 → 010" />
             <ProjectsSection />
+            <PageDivider folio="010 → 014" />
             <ResearchSection />
+            <PageDivider folio="014 → APP" />
             <TerminalSection />
+            <PageDivider folio="APP → 016" />
             <ContactSection />
             <DossierSection />
           </main>

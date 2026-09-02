@@ -77,12 +77,14 @@ export function resolveCommand(raw: string): TerminalLine[] {
 
     case 'whoami':
       return [
-        { type: 'output', text: `${ENGINEER.name} — ${ENGINEER.role}` },
-        { type: 'output', text: `Field: ${ENGINEER.division}` },
+        { type: 'output', text: `Name: ${ENGINEER.name}` },
+        { type: 'output', text: `Role: ${ENGINEER.role}` },
         {
           type: 'output',
-          text: `Focus areas: ${ENGINEER.specializations.join(' · ')}`,
+          text: `Focus: ${ENGINEER.specializations.join(', ')}`,
         },
+        { type: 'output', text: `Current Project: ${ENGINEER.currentMission}` },
+        { type: 'output', text: 'Status: Open to opportunities and continuous learning' },
       ]
 
     case 'projects':
@@ -99,10 +101,13 @@ export function resolveCommand(raw: string): TerminalLine[] {
     case 'systems':
       return [
         { type: 'system', text: 'SKILLS' },
-        ...SKILLS.map((s) => ({
-          type: 'output' as const,
-          text: `${s.module.padEnd(14)} ${s.name.padEnd(20)} ${s.progress}%`,
-        })),
+        ...SKILLS.flatMap((group) => [
+          { type: 'output' as const, text: `${group.group}:` },
+          ...group.items.map((item) => ({
+            type: 'output' as const,
+            text: `  - ${item}`,
+          })),
+        ]),
       ]
 
     case 'research':
@@ -121,7 +126,7 @@ export function resolveCommand(raw: string): TerminalLine[] {
           type: 'output',
           text: 'Resume section opening...',
         },
-        { type: 'system', text: `Download: ${ENGINEER.links.resume}` },
+        { type: 'system', text: 'Education, Experience, Projects & Technical Skills' },
       ]
 
     case 'contact':

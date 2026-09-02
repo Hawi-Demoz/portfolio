@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { ENGINEER } from '../../data/content'
+import heroIllustration from '../../assets/hero-illustration.jpg'
+import { CurlyUnderline, StarMark } from '../BookDecorations'
 
 export function HomeSection() {
   return (
@@ -7,60 +8,127 @@ export function HomeSection() {
       id="command"
       className="relative flex min-h-screen flex-col justify-center section-pad pt-28"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(180,87,61,0.04),transparent_50%),radial-gradient(ellipse_at_80%_60%,rgba(104,100,93,0.03),transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-60" />
 
       <motion.div
-        initial={{ opacity: 0, y: 28 }}
+        initial={{ opacity: 0, y: 26 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto max-w-5xl w-full"
+        className="relative mx-auto w-full max-w-6xl"
       >
-        <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-16 items-start">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-emerald mb-6">
-              00 / COMMAND DECK
-            </p>
-            <h1 className="font-display text-[clamp(4.5rem,11vw,9.5rem)] font-light italic leading-[0.85] tracking-tight text-soft-white select-none">
-              Mission
-              <br />
-              <span className="text-emerald font-normal not-italic">Control</span>
-            </h1>
+        {/* Book cover / spread header marking */}
+        <div className="mb-6 flex items-center justify-between border-b border-border/50 pb-3 text-muted">
+          <div className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.28em]">
+            <span className="text-emerald">✦</span>
+            <span>BOOK COVER // OPENING SPREAD</span>
           </div>
+          <div className="font-mono text-[9px] tracking-[0.24em] text-dim">
+            FOLIO · 001
+          </div>
+        </div>
 
-          <div className="md:mt-14 space-y-10">
-            <div className="border-l border-emerald/30 pl-5 space-y-3">
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-dim">
-                HAWI / STAFF ENGINEER
-              </p>
-              <ul className="flex flex-wrap gap-x-3 gap-y-1 font-mono text-[9px] uppercase tracking-[0.15em] text-muted">
-                {ENGINEER.titles.map((t) => (
-                  <li key={t} className="after:ml-3 after:text-border after:content-['/'] last:after:content-['']">
-                    {t}
-                  </li>
-                ))}
-              </ul>
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div className="order-2 lg:order-1">
+            <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-emerald font-semibold">
+              an interactive book of works
+            </p>
+
+            <div className="relative inline-block">
+              <h1 className="font-display text-[clamp(4.5rem,11vw,9.5rem)] leading-[0.78] tracking-[-0.05em] text-soft-white select-none">
+                HELLO!
+              </h1>
+              <CurlyUnderline className="absolute -bottom-3 left-2 w-36 text-emerald" />
             </div>
 
-            <p className="font-sans text-lg md:text-xl font-light leading-relaxed text-soft-white/90">
-              {ENGINEER.objective}
-              <span className="cursor-blink ml-1 inline-block text-emerald">▌</span>
+            <h2 className="mt-8 max-w-xl font-sans text-2xl font-medium leading-snug text-soft-white md:text-4xl">
+              I&apos;m Hawi — an{' '}
+              <span className="font-display text-[1.45em] italic font-light text-soft-white">
+                Electrical & Computer Engineer
+              </span>{' '}
+              and{' '}
+              <span className="font-display text-[1.45em] italic font-light text-soft-white">
+                Software Developer
+              </span>
+              .
+            </h2>
+
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-muted md:text-lg">
+              Welcome to my portfolio book. I enjoy building practical software, exploring embedded systems, data, and creating things where technical engineering meets artistic playfulness.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href="#projects"
-                className="btn-transmit rounded-sm border border-emerald/40 bg-emerald/10 px-6 py-3 font-mono text-[9px] uppercase tracking-[0.25em] text-emerald hover:bg-emerald/15 transition-all"
+                className="btn-transmit rounded-full border border-emerald/50 bg-emerald/10 px-7 py-3.5 font-mono text-[9.5px] uppercase tracking-[0.22em] text-emerald transition-all hover:border-emerald hover:bg-emerald/15 shadow-sm"
               >
-                [ VIEW PROJECTS ]
+                [ TURN TO PROJECTS → ]
               </a>
               <a
-                href="#terminal"
-                className="btn-transmit rounded-sm border border-border px-6 py-3 font-mono text-[9px] uppercase tracking-[0.25em] text-muted hover:border-soft-white/30 hover:text-soft-white transition-all"
+                href="#engineer"
+                className="btn-transmit rounded-full border border-border bg-white/40 px-6 py-3.5 font-mono text-[9.5px] uppercase tracking-[0.22em] text-soft-white transition-all hover:border-soft-white/40 hover:bg-white/60"
               >
-                [ OPEN TERMINAL ]
+                [ ABOUT THE AUTHOR ]
               </a>
             </div>
+
+            {/* Editorial marginal note */}
+            <div className="mt-12 flex items-center gap-3 border-t border-border/40 pt-4 text-dim font-mono text-[8.5px] tracking-[0.2em] uppercase">
+              <StarMark size={10} color="#B4573D" />
+              <span>Volume 01 · First Edition · Addis Ababa / Global</span>
+            </div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 18, scale: 0.98 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+            className="order-1 flex justify-center lg:order-2"
+          >
+            <div className="hero-art relative w-full max-w-[540px]">
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+                className="hero-badge hero-badge-top !px-3 !py-1.5"
+              >
+                plate no. 01
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 6, 0], rotate: [0, 2, 0] }}
+                transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+                className="hero-badge hero-badge-right !px-3 !py-1.5"
+              >
+                illustrated
+              </motion.div>
+
+              <motion.div
+                animate={{ opacity: [0.45, 1, 0.45], scale: [1, 1.15, 1] }}
+                transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
+                className="floating-star star-one"
+              >
+                ✦
+              </motion.div>
+
+              <motion.div
+                animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
+                transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                className="floating-star star-two"
+              >
+                ✦
+              </motion.div>
+
+              <div className="illustration-shell">
+                <img
+                  src={heroIllustration}
+                  alt="Original 2D illustration of Hawi in a creative, quirky, and playful pose"
+                  className="hero-img w-full h-auto rounded-[24px] object-cover"
+                  loading="eager"
+                  width={560}
+                  height={747}
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

@@ -27,12 +27,14 @@ export function BootSequence({ onComplete }: Props) {
       exit={{ opacity: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } }}
       role="status"
       aria-live="polite"
-      aria-label="Establishing mission link"
+      aria-label="Opening illustrated portfolio book"
     >
       <div className="w-full max-w-xl px-6 font-mono text-sm text-soft-white/90">
-        <div className="mb-8 flex items-center gap-2 text-emerald/80">
-          <span className="inline-block h-2 w-2 rounded-full bg-emerald status-dot" />
-          <span className="eyebrow text-emerald/70">HAWI_OS // BOOTLOADER</span>
+        <div className="mb-8 flex items-center gap-2.5 text-emerald">
+          <span className="font-serif italic text-lg">✦</span>
+          <span className="eyebrow text-emerald/80 tracking-[0.26em]">
+            HAWI DEMOZ // AN ILLUSTRATED PORTFOLIO BOOK
+          </span>
         </div>
 
         <ul className="space-y-2.5">

@@ -1,50 +1,83 @@
 import { motion } from 'framer-motion'
 import { RESEARCH } from '../../data/content'
+import { ChapterHeader, HandDrawnDivider, StarMark } from '../BookDecorations'
 
 export function ResearchSection() {
   return (
-    <section id="research" className="relative section-pad">
+    <section id="research" className="relative section-pad section-texture-deep">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-emerald mb-3">
-            05 / RESEARCH
-          </p>
+          <ChapterHeader
+            chapter="05"
+            title="FIELD NOTES & STUDY"
+            page="P. 14–15"
+            subtitle="Ongoing explorations, ideas in the margin, and engineering subjects I am actively studying."
+          />
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
             Research Notes
           </h2>
-          <p className="mt-3 max-w-xl text-sm text-muted">
-            Topics I am currently studying, designing, or exploring.
-          </p>
         </motion.div>
 
-        <div className="mt-12 border-t border-border/60 divide-y divide-border/60">
+        <HandDrawnDivider className="my-8 text-emerald" />
+
+        {/* Notebook-style entries */}
+        <div className="space-y-0">
           {RESEARCH.map((r, i) => (
             <motion.div
               key={r.title}
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="grid md:grid-cols-[150px_1fr] gap-4 md:gap-8 py-6 items-start"
+              transition={{ delay: i * 0.1 }}
+              className="relative grid md:grid-cols-[200px_1fr] gap-4 md:gap-10 py-7 border-b border-border/50 last:border-b-0"
             >
-              <span className="font-mono text-[9px] tracking-[0.2em] text-emerald uppercase font-semibold mt-1">
-                // {r.status}
-              </span>
-              <div className="space-y-2">
+              {/* Margin / note marker */}
+              <div className="flex md:flex-col gap-2 md:gap-3">
+                <div className="flex items-center gap-2">
+                  <StarMark size={9} color="#B4573D" />
+                  <span className="font-mono text-[9px] tracking-[0.22em] text-emerald uppercase font-semibold">
+                    // {r.status}
+                  </span>
+                </div>
+                <span className="font-mono text-[8px] tracking-[0.18em] text-dim">
+                  Note {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+
+              <div className="space-y-2.5">
                 <h3 className="font-display text-2xl font-light text-soft-white leading-tight">
                   {r.title}
                 </h3>
                 <p className="max-w-2xl text-sm leading-relaxed text-muted font-sans">
                   {r.summary}
                 </p>
+                {/* Doodle bracket */}
+                <div className="flex items-center gap-3 mt-1">
+                  <svg width="20" height="8" viewBox="0 0 20 8" fill="none" className="text-emerald/50" aria-hidden="true">
+                    <path d="M2 1C2 1 4 4 10 4C16 4 18 7 18 7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
+                  <span className="font-mono text-[8px] tracking-[0.2em] text-dim uppercase">ongoing exploration</span>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-10 rounded-xl border border-border/50 bg-panel/25 px-5 py-4"
+        >
+          <p className="font-mono text-[8.5px] tracking-[0.22em] text-dim uppercase">
+            § Margin Note — This chapter is a living document. Studies and research areas are updated as new engineering interests and projects emerge.
+          </p>
+        </motion.div>
       </div>
     </section>
   )

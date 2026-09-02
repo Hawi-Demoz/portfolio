@@ -17,21 +17,23 @@ export function Navigation({ active, onNavigate, open, onToggle }: Props) {
             type="button"
             onClick={() => onNavigate('command')}
             className="group flex items-center gap-3 text-left cursor-pointer"
-            aria-label="Return to command deck"
+            aria-label="Return to book cover"
           >
             <div>
-              <div className="font-mono text-[10px] tracking-[0.25em] font-semibold text-soft-white group-hover:text-emerald transition-colors">
-                HAWI // SPEC
+              <div className="font-mono text-[10.5px] tracking-[0.24em] font-semibold text-soft-white group-hover:text-emerald transition-colors flex items-center gap-2">
+                <span>HAWI DEMOZ</span>
+                <span className="text-emerald text-[9px]">✦</span>
+                <span className="text-muted text-[8.5px] font-normal tracking-[0.2em]">PORTFOLIO</span>
               </div>
-              <div className="font-mono text-[8px] tracking-[0.28em] text-dim">
-                STAFF ENGINEER
+              <div className="font-mono text-[8px] tracking-[0.26em] text-dim">
+                AN ILLUSTRATED BOOK OF ENGINEERING & SOFTWARE
               </div>
             </div>
           </button>
 
           <nav
             className="hidden items-center gap-2 lg:flex"
-            aria-label="Spacecraft modules"
+            aria-label="Book chapters"
           >
             {NAV_MODULES.map((m) => {
               const isActive = active === m.id

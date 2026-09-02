@@ -118,19 +118,25 @@ export function TerminalSection() {
   }
 
   return (
-    <section id="terminal" className="relative section-pad">
+    <section id="terminal" className="relative section-pad section-texture-deep">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="eyebrow mb-3 text-emerald/60">DECK 06 // SHELL</p>
-          <h2 className="panel-title text-3xl tracking-[0.12em] md:text-4xl">
-            TERMINAL
+          <div className="mb-5 flex items-center justify-between border-b border-border/50 pb-3">
+            <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.26em] text-muted">
+              <span className="text-emerald">✦</span>
+              <span>APPENDIX // INTERACTIVE MARGINALIA</span>
+            </div>
+            <div className="font-mono text-[9px] tracking-[0.22em] text-dim">APP. 01</div>
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
+            The Appendix
           </h2>
           <p className="mt-3 max-w-xl text-sm text-muted">
-            Type commands to explore this site. Try help, whoami, or projects.
+            An interactive terminal tucked into the back pages. Type <em>help</em> to see all available commands.
           </p>
         </motion.div>
 

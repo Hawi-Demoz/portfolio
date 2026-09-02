@@ -30,7 +30,6 @@ export function Starfield() {
     let h = 0
     let stars: Star[] = []
     let particles: Particle[] = []
-    let scanY = 0
     let t = 0
     let mx = 0.5
     let my = 0.5
@@ -142,27 +141,6 @@ export function Starfield() {
         ctx.arc(x, y, s.size * (0.5 + s.z), 0, Math.PI * 2)
         ctx.fill()
       }
-
-      // satellite orbit
-      const ox = w * 0.72 + px * 0.6
-      const oy = h * 0.28 + py * 0.6
-      const or = Math.min(w, h) * 0.12
-      ctx.strokeStyle = 'rgba(180, 87, 61, 0.12)'
-      ctx.beginPath()
-      ctx.ellipse(ox, oy, or * 1.6, or * 0.55, -0.4, 0, Math.PI * 2)
-      ctx.stroke()
-      const ang = t * 0.35
-      const sx = ox + Math.cos(ang) * or * 1.6
-      const sy = oy + Math.sin(ang) * or * 0.55
-      ctx.fillStyle = 'rgba(180, 87, 61, 0.8)'
-      ctx.beginPath()
-      ctx.arc(sx, sy, 2.2, 0, Math.PI * 2)
-      ctx.fill()
-      ctx.strokeStyle = 'rgba(180, 87, 61, 0.25)'
-      ctx.beginPath()
-      ctx.moveTo(sx, sy)
-      ctx.lineTo(ox, oy)
-      ctx.stroke()
 
       // particles
       for (const p of particles) {

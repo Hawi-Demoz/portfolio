@@ -10,37 +10,39 @@ export type SectionId =
   | 'dossier'
 
 export const NAV_MODULES: { id: SectionId; label: string; cmd: string }[] = [
-  { id: 'command', label: 'COMMAND', cmd: 'CMD' },
-  { id: 'mission', label: 'MISSION', cmd: 'MSN' },
-  { id: 'engineer', label: 'ENGINEER', cmd: 'ENG' },
-  { id: 'systems', label: 'SYSTEMS', cmd: 'SYS' },
-  { id: 'projects', label: 'PROJECTS', cmd: 'PRJ' },
-  { id: 'research', label: 'RESEARCH', cmd: 'RSH' },
-  { id: 'terminal', label: 'TERMINAL', cmd: 'TRM' },
-  { id: 'contact', label: 'CONTACT', cmd: 'COM' },
-  { id: 'dossier', label: 'RESUME', cmd: 'DOS' },
+  { id: 'command', label: 'COVER', cmd: 'CVR' },
+  { id: 'mission', label: 'PROLOGUE', cmd: 'CH.01' },
+  { id: 'engineer', label: 'ABOUT', cmd: 'CH.02' },
+  { id: 'systems', label: 'INDEX', cmd: 'CH.03' },
+  { id: 'projects', label: 'PROJECTS', cmd: 'CH.04' },
+  { id: 'research', label: 'NOTES', cmd: 'CH.05' },
+  { id: 'terminal', label: 'APPENDIX', cmd: 'APP' },
+  { id: 'contact', label: 'CONTACT', cmd: 'CH.06' },
+  { id: 'dossier', label: 'RESUME', cmd: 'FOLIO' },
 ]
 
 export const ENGINEER = {
-  name: 'Hawi',
-  role: 'Systems Engineer',
-  division: 'Electrical Engineering',
+  name: 'Hawi Demoz',
+  role: 'Electrical & Computer Engineer | Software Developer',
+  division: 'Electrical & Computer Engineering',
   titles: [
-    'Electrical Engineer',
-    'Firmware Developer',
-    'Frontend Developer',
-    'AI Engineer',
+    'Electrical & Computer Engineer',
+    'Software Developer',
+    'Web Developer',
+    'Engineering Learner',
   ],
   specializations: [
-    'Software for hardware devices',
-    'Firmware',
-    'Artificial intelligence',
-    'Web interfaces',
+    'Software Development',
+    'Web Applications',
+    'Embedded Systems',
+    'Signal Processing',
+    'Wireless Communication',
+    'Data Analysis',
   ],
   currentMission: 'Adaptive Audio Steganography',
-  clearance: 'Open to new opportunities',
+  clearance: 'Open to software development, engineering, data, and technology opportunities',
   objective:
-    'I build smart products that bring together hardware, software, AI, and clear design.',
+    'I am an Electrical and Computer Engineer interested in building practical software and engineering solutions. My work and projects explore web development, embedded systems, signal processing, wireless communication, artificial intelligence, and data analysis.',
   links: {
     github: 'https://github.com',
     linkedin: 'https://linkedin.com',
@@ -50,15 +52,22 @@ export const ENGINEER = {
 }
 
 export const SKILLS = [
-  { name: 'Embedded C', module: 'SYS.EMBED', progress: 92 },
-  { name: 'Python', module: 'SYS.PY', progress: 90 },
-  { name: 'JavaScript', module: 'SYS.JS', progress: 88 },
-  { name: 'React', module: 'SYS.REACT', progress: 86 },
-  { name: 'Git', module: 'SYS.VCS', progress: 94 },
-  { name: 'Linux', module: 'SYS.KERNEL', progress: 85 },
-  { name: 'Machine Learning', module: 'SYS.ML', progress: 78 },
-  { name: 'HTML', module: 'SYS.MARKUP', progress: 95 },
-  { name: 'CSS', module: 'SYS.STYLE', progress: 90 },
+  {
+    group: 'Programming & Web Development',
+    items: ['Python', 'JavaScript', 'HTML5', 'CSS3', 'React', 'Flask', 'Tailwind CSS'],
+  },
+  {
+    group: 'Engineering & Technical Areas',
+    items: ['Embedded Systems', 'Signal Processing', 'Audio Steganography', 'Wireless Network Planning', 'Data Analysis', 'MATLAB'],
+  },
+  {
+    group: 'Tools',
+    items: ['Git', 'GitHub', 'VS Code', 'Figma'],
+  },
+  {
+    group: 'Professional Skills',
+    items: ['Problem Solving', 'Adaptability', 'Team Collaboration'],
+  },
 ]
 
 export type Mission = {
@@ -81,100 +90,77 @@ export const MISSIONS: Mission[] = [
     title: 'Adaptive Audio Steganography',
     status: 'ACTIVE',
     brief:
-      'A project that hides digital data inside audio files so the sound still seems normal, then recovers that data later. Uses audio processing, encryption, and machine learning.',
+      'Designing an adaptive audio steganography system that securely embeds secret information into digital audio while preserving sound quality. The project explores adaptive embedding techniques and evaluates performance using signal quality metrics.',
     objectives: [
-      'Hide data inside audio without changing how it sounds',
-      'Keep the hidden data intact when audio is compressed',
-      'Recover the data accurately, even with some noise',
+      'Embed information into audio while preserving acceptable sound quality',
+      'Explore adaptive methods for reliable data hiding in digital audio',
+      'Evaluate the system using signal quality metrics and practical testing',
     ],
-    technologies: ['Python', 'Audio processing', 'Machine learning', 'NumPy', 'Web Audio'],
+    technologies: ['Python', 'MATLAB', 'Signal Processing', 'Audio Steganography', 'Digital Audio'],
     challenges: [
-      'Fitting enough data without making the audio sound worse',
-      'Keeping data safe when files are converted or compressed',
-      'Building a fast process to hide and recover data',
+      'Balancing data capacity with audio quality',
+      'Maintaining reliable embedding under common signal changes',
+      'Evaluating how well the method performs in practice',
     ],
     github: 'https://github.com',
   },
   {
     id: '02',
     code: 'MSN-02',
-    title: 'Ask Jesus Chatbot',
+    title: 'Urban Indexing & Data Analysis Project',
     status: 'COMPLETE',
     brief:
-      'A chat app that answers questions with guidance based on scripture. Focused on careful, respectful responses and a calm user experience.',
+      'Developed a data analysis system for organizing and indexing urban infrastructure data to support planning and development decisions.',
     objectives: [
-      'Create a respectful and clear chat personality',
-      'Base answers on trusted religious source material',
-      'Build a chat experience that works well on phone and desktop',
+      'Organize urban data into a structured and usable format',
+      'Support analysis for planning and decision-making',
+      'Improve access to key information for infrastructure-related work',
     ],
-    technologies: ['React', 'TypeScript', 'AI chat APIs', 'Node'],
+    technologies: ['Python', 'Data Analysis', 'Structured Data', 'Visualization', 'Reporting'],
     challenges: [
-      'Reducing incorrect or made-up answers on sensitive topics',
-      'Balancing fast replies with good answer quality',
-      'Keeping a respectful tone and safe content',
+      'Sorting and standardizing varied urban data sources',
+      'Making analysis useful for planning tasks',
+      'Turning raw information into a clear, practical system',
     ],
     github: 'https://github.com',
-    demo: 'https://example.com',
   },
   {
     id: '03',
     code: 'MSN-03',
-    title: 'Weather Dashboard',
+    title: 'Wireless Cellular Network Planner',
     status: 'COMPLETE',
     brief:
-      'A weather app that shows live forecasts, location-based updates, and easy-to-read charts.',
+      'Designed a wireless cellular network planning system that analyzes coverage requirements, cell placement, frequency reuse, and network capacity to improve communication efficiency.',
     objectives: [
-      'Combine weather data from more than one source',
-      'Show forecasts in a clear, easy layout',
-      'Support location detection and city search',
+      'Analyze wireless coverage and placement requirements',
+      'Study capacity, reuse, and network efficiency considerations',
+      'Explore practical network planning concepts for communication systems',
     ],
-    technologies: ['React', 'APIs', 'CSS', 'Charts'],
+    technologies: ['Wireless Communication', 'Network Planning', 'Coverage Analysis', 'MATLAB', 'Radio Concepts'],
     challenges: [
-      'Handling service limits and backup data sources',
-      'Keeping the layout clear on small screens',
-      'Managing time zones and unit conversions',
+      'Balancing coverage needs with capacity constraints',
+      'Understanding practical trade-offs in cell placement',
+      'Modeling planning decisions in a clear, testable way',
     ],
     github: 'https://github.com',
-    demo: 'https://example.com',
   },
   {
     id: '04',
     code: 'MSN-04',
-    title: 'Worship Playlist',
+    title: 'Employee Management System',
     status: 'COMPLETE',
     brief:
-      'A playlist app for worship music with a calm design, play controls, and smooth listening flow.',
+      'Developed a web-based Employee Management System for managing employee records, roles, attendance, departments, and administrative workflows. Implemented authentication, database-driven CRUD operations, and responsive user interfaces.',
     objectives: [
-      'Make it easy to browse playlists',
-      'Add play, pause, and queue controls',
-      'Keep a quiet, focused visual style',
+      'Create a practical system for employee records and administration',
+      'Support role, attendance, and department management workflows',
+      'Build a responsive interface with secure and functional data handling',
     ],
-    technologies: ['JavaScript', 'HTML', 'CSS', 'Audio APIs'],
+    technologies: ['React', 'Flask', 'JavaScript', 'Authentication', 'CRUD', 'Responsive UI'],
     challenges: [
-      'Making audio work the same across browsers',
-      'Managing playlist and queue state',
-      'Keeping the app fast with media files',
-    ],
-    github: 'https://github.com',
-    demo: 'https://example.com',
-  },
-  {
-    id: '05',
-    code: 'MSN-05',
-    title: 'Save the Sun',
-    status: 'STANDBY',
-    brief:
-      'An interactive story about energy and caring for the planet, told through simple playable scenes.',
-    objectives: [
-      'Build short interactive story moments',
-      'Show energy ideas in a visual, simple way',
-      'Create a small experience people remember',
-    ],
-    technologies: ['React', 'Canvas', 'Animation', 'UI design'],
-    challenges: [
-      'Keeping the story fun without confusing users',
-      'Running smoothly on older devices',
-      'Pacing the story without too much clutter',
+      'Designing a clear admin workflow for everyday use',
+      'Handling data operations reliably across the application',
+      'Keeping the interface responsive and user-friendly',
     ],
     github: 'https://github.com',
   },
@@ -182,35 +168,32 @@ export const MISSIONS: Mission[] = [
 
 export const RESEARCH = [
   {
-    title: 'Hiding data in audio after compression',
+    title: 'Adaptive Audio Steganography',
     status: 'IN PROGRESS',
     summary:
-      'Testing how well hidden audio data survives common file formats like AAC and MP3.',
+      'Exploring techniques for embedding information into digital audio while maintaining acceptable sound quality and evaluating performance using signal quality metrics.',
   },
   {
-    title: 'Low-power device reporting',
-    status: 'ARCHIVED',
-    summary:
-      'Ways for small devices to send sensor updates while using as little power as possible.',
-  },
-  {
-    title: 'Simple interfaces for AI tools',
+    title: 'Wireless Communication & Network Planning',
     status: 'ACTIVE',
     summary:
-      'How clean layouts and clear feedback help people trust important software tools.',
+      'Exploring communication network concepts including coverage planning, cell placement, frequency reuse, and network capacity.',
+  },
+  {
+    title: 'Signal Processing',
+    status: 'ACTIVE',
+    summary:
+      'Developing knowledge and practical experience in signal processing concepts through engineering projects and academic work.',
   },
 ]
 
 export const BOOT_LINES = [
-  'Connection established...',
-  'Authenticating...',
-  'Receiving encrypted transmission...',
-  'Initializing Navigation Computer...',
-  'Powering Life Support...',
-  'Synchronizing Satellite...',
-  'Scanning Crew Database...',
-  'Loading Engineering Systems...',
-  'MISSION LINK ESTABLISHED',
+  'Opening Hawi Demoz’s portfolio book...',
+  'Gathering hand-drawn plates and chapter folios...',
+  'Binding engineering projects and study notes...',
+  'Setting warm cream spreads...',
+  'Turning to the opening cover...',
+  'WELCOME TO THE BOOK',
 ]
 
 /** Clear labels for project status badges */
