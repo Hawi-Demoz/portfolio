@@ -25,10 +25,9 @@ export function ContactSection() {
           viewport={{ once: true }}
         >
           <ChapterHeader
-            chapter="06"
-            title="THE COLOPHON"
-            page="P. 16"
-            subtitle="The final page of this book. A space to write, to connect, to begin a new chapter together."
+            label="CONTACT"
+            title="LET'S CONNECT"
+            subtitle="Say hi, or tell me about something you&apos;re working on."
           />
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
             Get in touch
@@ -38,7 +37,7 @@ export function ContactSection() {
         <HandDrawnDivider className="my-8 text-emerald" />
 
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] items-start">
-          {/* Letter / correspondence form */}
+          {/* Contact form */}
           <motion.div
             initial={{ opacity: 0, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -50,7 +49,7 @@ export function ContactSection() {
               <StarMark size={11} color="#B4573D" />
               <div>
                 <div className="font-mono text-[9px] tracking-[0.2em] text-muted uppercase">To: Hawi Demoz</div>
-                <div className="font-mono text-[8px] tracking-[0.18em] text-dim">Personal Correspondence</div>
+                <div className="font-mono text-[8px] tracking-[0.18em] text-dim">Direct contact</div>
               </div>
             </div>
 
@@ -68,7 +67,7 @@ export function ContactSection() {
               </label>
               <label className="block">
                 <span className="font-mono text-[9px] tracking-[0.22em] text-muted uppercase">
-                  Return Address (Email)
+                  Email Address
                 </span>
                 <input
                   required
@@ -80,7 +79,7 @@ export function ContactSection() {
               </label>
               <label className="block">
                 <span className="font-mono text-[9px] tracking-[0.22em] text-muted uppercase">
-                  Your Letter
+                  Your Message
                 </span>
                 <textarea
                   required
@@ -97,21 +96,21 @@ export function ContactSection() {
                 className="btn-transmit w-full rounded-lg border border-emerald/50 bg-emerald/10 px-5 py-3.5 font-mono text-[9px] tracking-[0.25em] text-emerald disabled:opacity-60 cursor-pointer hover:bg-emerald/15 transition-all"
               >
                 {sent
-                  ? '[ LETTER RECEIVED · THANK YOU ]'
+                  ? '[ MESSAGE RECEIVED · THANK YOU ]'
                   : sending
-                    ? '[ SENDING YOUR LETTER... ]'
-                    : '[ SEND YOUR LETTER → ]'}
+                    ? '[ SENDING YOUR MESSAGE... ]'
+                    : '[ SEND YOUR MESSAGE → ]'}
               </button>
 
               {sent && (
                 <p className="font-mono text-[9px] tracking-[0.14em] text-emerald">
-                  ✦ Your letter has been received. I will write back soon.
+                  ✦ Your message has been received. I will get back to you soon.
                 </p>
               )}
             </form>
           </motion.div>
 
-          {/* Right: colophon details */}
+          {/* Right: contact details */}
           <motion.div
             initial={{ opacity: 0, x: 12 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -119,7 +118,6 @@ export function ContactSection() {
             transition={{ delay: 0.15, duration: 0.6 }}
             className="space-y-7 lg:border-l lg:border-border/50 lg:pl-10"
           >
-            {/* Contact details as colophon type */}
             <div>
               <p className="font-mono text-[9px] uppercase tracking-[0.26em] text-emerald mb-4">
                 § Contact Details
@@ -127,7 +125,7 @@ export function ContactSection() {
               <div className="space-y-3">
                 {[
                   { label: 'Method', value: 'Email' },
-                  { label: 'Response time', value: '1–2 days' },
+                  { label: 'Response time', value: '1 to 2 days' },
                   { label: 'Name', value: ENGINEER.name },
                 ].map((row) => (
                   <div key={row.label} className="flex justify-between gap-3 border-b border-border/40 pb-2.5">
@@ -166,10 +164,9 @@ export function ContactSection() {
             {/* Closing sign-off */}
             <div className="pt-4 border-t border-border/50">
               <p className="font-display text-base italic text-soft-white/70 leading-relaxed">
-                &ldquo;Every great collaboration starts with a single message.&rdquo;
               </p>
               <p className="mt-2 font-mono text-[8.5px] tracking-[0.2em] text-dim">
-                — Hawi Demoz
+                Hawi Demoz
               </p>
             </div>
           </motion.div>

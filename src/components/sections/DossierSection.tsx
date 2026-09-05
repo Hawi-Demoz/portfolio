@@ -12,35 +12,35 @@ export function DossierSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {/* Appendix folio header */}
+          {/* Resume header */}
           <div className="mb-6 flex items-center justify-between border-b border-border/50 pb-3">
             <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.26em] text-muted">
               <StarMark size={9} color="#B4573D" />
-              <span>APPENDIX // FOLIO INSERT</span>
+              <span>RESUME // DOWNLOAD</span>
             </div>
             <div className="font-mono text-[9px] tracking-[0.22em] text-dim">
-              P. END
+              PDF
             </div>
           </div>
 
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
-            Resume & Folio
+            Resume
           </h2>
           <p className="mt-3 max-w-xl text-sm text-muted">
-            A formal record of education, engineering projects, technical skills, and professional experience.
+            Education, projects, and experience, in one document.
           </p>
         </motion.div>
 
         <HandDrawnDivider className="my-8 text-emerald" />
 
-        {/* Resume archival card */}
+        {/* Resume card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="relative rounded-xl border border-border/70 bg-panel/40 p-6 md:p-8"
         >
-          {/* Corner plate marks */}
+          {/* Corner marks */}
           <span className="absolute -top-px -left-px h-3 w-3 border-t border-l border-emerald/45 rounded-tl-xl" />
           <span className="absolute -top-px -right-px h-3 w-3 border-t border-r border-emerald/45 rounded-tr-xl" />
           <span className="absolute -bottom-px -left-px h-3 w-3 border-b border-l border-emerald/45 rounded-bl-xl" />
@@ -53,7 +53,7 @@ export function DossierSection() {
               </div>
               <div>
                 <div className="font-mono text-[9px] tracking-[0.22em] text-emerald uppercase mb-1">
-                  § Folio Document
+                  § Resume Document
                 </div>
                 <h3 className="font-display text-2xl font-light tracking-wide text-soft-white">
                   {ENGINEER.name}
@@ -69,12 +69,12 @@ export function DossierSection() {
               className="btn-transmit inline-flex items-center gap-2.5 rounded-lg border border-emerald/50 bg-emerald/10 px-6 py-3.5 font-mono text-[9px] tracking-[0.22em] text-emerald cursor-pointer hover:bg-emerald/15 transition-all shrink-0"
             >
               <Download size={12} />
-              [ DOWNLOAD FOLIO ]
+              [ DOWNLOAD RESUME ]
             </a>
           </div>
         </motion.div>
 
-        {/* Book closing / end mark */}
+        {/* Closing mark */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -85,12 +85,12 @@ export function DossierSection() {
           <HandDrawnDivider className="mx-auto mb-8 text-border/50" />
           <div className="flex items-center justify-center gap-4 mb-4">
             <StarMark size={12} color="#C9C1B5" />
-            <span className="font-mono text-[9px] tracking-[0.32em] text-dim uppercase">End of Book</span>
+            <span className="font-mono text-[9px] tracking-[0.32em] text-dim uppercase">Thanks for visiting</span>
             <StarMark size={12} color="#C9C1B5" />
           </div>
           <p className="font-display text-xl italic text-soft-white/50">❦</p>
           <p className="mt-3 font-mono text-[8.5px] tracking-[0.3em] text-dim uppercase">
-            Hawi Demoz · Portfolio Book · Volume 01
+            Hawi Demoz · Portfolio · 2026
           </p>
         </motion.div>
       </div>

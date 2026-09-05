@@ -12,13 +12,12 @@ export function SkillsSection() {
           viewport={{ once: true, margin: '-60px' }}
         >
           <ChapterHeader
-            chapter="03"
-            title="THE TECHNICAL INDEX"
-            page="P. 08–09"
-            subtitle="A taxonomy of skills, tools, and domains—organized as the book's glossary of disciplines."
+            label="SKILLS"
+            title="TOOLS & DISCIPLINES"
+            subtitle="The tools and areas I actually use to get things done."
           />
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
-            Skills & Disciplines
+            Skills
           </h2>
         </motion.div>
 
@@ -34,11 +33,11 @@ export function SkillsSection() {
               transition={{ delay: i * 0.08, duration: 0.5 }}
               className="relative rounded-xl border border-border/70 bg-panel/35 p-5 md:p-6"
             >
-              {/* Plate corner accents */}
+              {/* Corner accents */}
               <span className="absolute -top-px -left-px h-2.5 w-2.5 border-t border-l border-emerald/45 rounded-tl-xl" />
               <span className="absolute -top-px -right-px h-2.5 w-2.5 border-t border-r border-emerald/45 rounded-tr-xl" />
 
-              {/* Index category header */}
+              {/* Category header */}
               <div className="flex items-start justify-between mb-5">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
@@ -53,7 +52,7 @@ export function SkillsSection() {
                 </span>
               </div>
 
-              {/* Index dotted leader with entries */}
+              {/* Dotted leader with entries */}
               <div className="space-y-2">
                 {group.items.map((item, j) => (
                   <div key={item} className="flex items-center gap-1 group">
@@ -71,7 +70,6 @@ export function SkillsSection() {
           ))}
         </div>
 
-        {/* Index footer note */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -80,7 +78,7 @@ export function SkillsSection() {
           className="mt-10 flex items-center gap-3 font-mono text-[8.5px] tracking-[0.2em] text-dim uppercase"
         >
           <HandDrawnDivider className="flex-1 text-border" />
-          <span className="shrink-0">End of Index</span>
+          <span className="shrink-0">Skills overview</span>
           <HandDrawnDivider className="flex-1 text-border" />
         </motion.div>
       </div>

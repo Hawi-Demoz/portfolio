@@ -10,15 +10,15 @@ export type SectionId =
   | 'dossier'
 
 export const NAV_MODULES: { id: SectionId; label: string; cmd: string }[] = [
-  { id: 'command', label: 'COVER', cmd: 'CVR' },
-  { id: 'mission', label: 'PROLOGUE', cmd: 'CH.01' },
-  { id: 'engineer', label: 'ABOUT', cmd: 'CH.02' },
-  { id: 'systems', label: 'INDEX', cmd: 'CH.03' },
-  { id: 'projects', label: 'PROJECTS', cmd: 'CH.04' },
-  { id: 'research', label: 'NOTES', cmd: 'CH.05' },
-  { id: 'terminal', label: 'APPENDIX', cmd: 'APP' },
-  { id: 'contact', label: 'CONTACT', cmd: 'CH.06' },
-  { id: 'dossier', label: 'RESUME', cmd: 'FOLIO' },
+  { id: 'command', label: 'HOME', cmd: 'HOME' },
+  { id: 'terminal', label: 'TERMINAL', cmd: '01' },
+  { id: 'engineer', label: 'ABOUT', cmd: '02' },
+  { id: 'mission', label: 'EXPERTISE', cmd: '03' },
+  { id: 'projects', label: 'PROJECTS', cmd: '04' },
+  { id: 'systems', label: 'SKILLS', cmd: '05' },
+  { id: 'research', label: 'HOBBIES', cmd: '06' },
+  { id: 'contact', label: 'CONTACT', cmd: '07' },
+  { id: 'dossier', label: 'RESUME', cmd: 'PDF' },
 ]
 
 export const ENGINEER = {
@@ -188,12 +188,12 @@ export const RESEARCH = [
 ]
 
 export const BOOT_LINES = [
-  'Opening Hawi Demoz’s portfolio book...',
-  'Gathering hand-drawn plates and chapter folios...',
-  'Binding engineering projects and study notes...',
-  'Setting warm cream spreads...',
-  'Turning to the opening cover...',
-  'WELCOME TO THE BOOK',
+  'Loading Hawi Demoz’s portfolio...',
+  'Preparing illustrated project studies...',
+  'Organizing engineering work and research...',
+  'Setting the visual workspace...',
+  'Opening the portfolio...',
+  'WELCOME',
 ]
 
 /** Clear labels for project status badges */

@@ -17,7 +17,7 @@ export function Navigation({ active, onNavigate, open, onToggle }: Props) {
             type="button"
             onClick={() => onNavigate('command')}
             className="group flex items-center gap-3 text-left cursor-pointer"
-            aria-label="Return to book cover"
+            aria-label="Return to home"
           >
             <div>
               <div className="font-mono text-[10.5px] tracking-[0.24em] font-semibold text-soft-white group-hover:text-emerald transition-colors flex items-center gap-2">
@@ -26,14 +26,14 @@ export function Navigation({ active, onNavigate, open, onToggle }: Props) {
                 <span className="text-muted text-[8.5px] font-normal tracking-[0.2em]">PORTFOLIO</span>
               </div>
               <div className="font-mono text-[8px] tracking-[0.26em] text-dim">
-                AN ILLUSTRATED BOOK OF ENGINEERING & SOFTWARE
+                ILLUSTRATED ENGINEERING & SOFTWARE PORTFOLIO
               </div>
             </div>
           </button>
 
           <nav
             className="hidden items-center gap-2 lg:flex"
-            aria-label="Book chapters"
+            aria-label="Portfolio sections"
           >
             {NAV_MODULES.map((m) => {
               const isActive = active === m.id

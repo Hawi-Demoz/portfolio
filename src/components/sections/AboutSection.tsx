@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import heroIllustration from '../../assets/hero-illustration.jpg'
 import { ENGINEER } from '../../data/content'
 import { ChapterHeader, HandDrawnDivider, StarMark } from '../BookDecorations'
 
@@ -25,10 +26,9 @@ export function AboutSection() {
           transition={{ duration: 0.7 }}
         >
           <ChapterHeader
-            chapter="02"
+            label="ABOUT"
             title="THE PROFILE"
-            page="P. 06–07"
-            subtitle="A brief character sheet and author biography for the engineer behind this book."
+            subtitle="A brief introduction to the engineer and developer behind the work."
           />
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
             About Hawi
@@ -38,7 +38,7 @@ export function AboutSection() {
         <HandDrawnDivider className="my-8 text-emerald" />
 
         <div className="grid gap-12 lg:grid-cols-[1fr_1.25fr] items-start">
-          {/* Left: character profile card */}
+          {/* Left: profile card */}
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -53,9 +53,13 @@ export function AboutSection() {
               <span className="absolute -bottom-px -left-px h-3 w-3 border-b border-l border-emerald/50 rounded-bl-lg" />
               <span className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-emerald/50 rounded-br-lg" />
 
+              <div className="mb-6 overflow-hidden rounded-[18px] border border-border/60 bg-panel-elevated/30 p-2">
+                <img src={heroIllustration} alt="Illustration of Hawi in a creative and playful pose" className="mx-auto h-auto max-h-[360px] w-full rounded-[12px] object-cover object-top" width={560} height={747} />
+              </div>
+
               <div className="flex items-center gap-2 text-emerald text-[9px] font-mono tracking-[0.22em] uppercase mb-5">
                 <StarMark size={10} color="#B4573D" />
-                <span>Character Profile · Engineer</span>
+                <span>Profile · Engineer</span>
               </div>
 
               <div className="space-y-3">
@@ -83,7 +87,7 @@ export function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Right: biography sheet */}
+              {/* Right: profile details */}
           <div>
             <div className="divide-y divide-border/50">
               {fields.map((f, i) => (
@@ -113,10 +117,10 @@ export function AboutSection() {
               className="mt-8 p-5 border-l-2 border-emerald/60 bg-panel/25 rounded-r-lg"
             >
               <p className="font-mono text-[8.5px] tracking-[0.22em] text-emerald uppercase mb-2">
-                § Author's Note
+                § Personal Note
               </p>
               <p className="font-display text-base md:text-lg font-light italic leading-relaxed text-soft-white/85">
-                &ldquo;I enjoy building things where technical thinking and creative curiosity work together.&rdquo;
+                I&apos;m an engineer, sure, but underneath that I just really love noticing things, little details, colors, the stuff that makes something feel unique instead of generic. That&apos;s what I try to bring into everything I build.
               </p>
             </motion.div>
           </div>

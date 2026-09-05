@@ -16,21 +16,20 @@ export function HomeSection() {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="relative mx-auto w-full max-w-6xl"
       >
-        {/* Book cover / spread header marking */}
         <div className="mb-6 flex items-center justify-between border-b border-border/50 pb-3 text-muted">
           <div className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.28em]">
             <span className="text-emerald">✦</span>
-            <span>BOOK COVER // OPENING SPREAD</span>
+            <span>HOME // PORTFOLIO</span>
           </div>
           <div className="font-mono text-[9px] tracking-[0.24em] text-dim">
-            FOLIO · 001
+            SELECTED WORK
           </div>
         </div>
 
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="order-2 lg:order-1">
             <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-emerald font-semibold">
-              an interactive book of works
+              illustrated engineering portfolio
             </p>
 
             <div className="relative inline-block">
@@ -41,7 +40,7 @@ export function HomeSection() {
             </div>
 
             <h2 className="mt-8 max-w-xl font-sans text-2xl font-medium leading-snug text-soft-white md:text-4xl">
-              I&apos;m Hawi — an{' '}
+              I&apos;m Hawi, an{' '}
               <span className="font-display text-[1.45em] italic font-light text-soft-white">
                 Electrical & Computer Engineer
               </span>{' '}
@@ -53,7 +52,7 @@ export function HomeSection() {
             </h2>
 
             <p className="mt-6 max-w-lg text-base leading-relaxed text-muted md:text-lg">
-              Welcome to my portfolio book. I enjoy building practical software, exploring embedded systems, data, and creating things where technical engineering meets artistic playfulness.
+              Welcome to my portfolio : )
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -61,20 +60,20 @@ export function HomeSection() {
                 href="#projects"
                 className="btn-transmit rounded-full border border-emerald/50 bg-emerald/10 px-7 py-3.5 font-mono text-[9.5px] uppercase tracking-[0.22em] text-emerald transition-all hover:border-emerald hover:bg-emerald/15 shadow-sm"
               >
-                [ TURN TO PROJECTS → ]
+                [ VIEW PROJECTS → ]
               </a>
               <a
                 href="#engineer"
                 className="btn-transmit rounded-full border border-border bg-white/40 px-6 py-3.5 font-mono text-[9.5px] uppercase tracking-[0.22em] text-soft-white transition-all hover:border-soft-white/40 hover:bg-white/60"
               >
-                [ ABOUT THE AUTHOR ]
+                [ ABOUT HAWI ]
               </a>
             </div>
 
             {/* Editorial marginal note */}
             <div className="mt-12 flex items-center gap-3 border-t border-border/40 pt-4 text-dim font-mono text-[8.5px] tracking-[0.2em] uppercase">
               <StarMark size={10} color="#B4573D" />
-              <span>Volume 01 · First Edition · Addis Ababa / Global</span>
+              <span>Addis Ababa / Global · Engineering & Software</span>
             </div>
           </div>
 
@@ -90,7 +89,7 @@ export function HomeSection() {
                 transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
                 className="hero-badge hero-badge-top !px-3 !py-1.5"
               >
-                plate no. 01
+                study no. 01
               </motion.div>
 
               <motion.div

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { ENGINEER } from '../../data/content'
 import { ChapterHeader, HandDrawnDivider, StarMark } from '../BookDecorations'
 
 export function MissionSection() {
@@ -13,10 +12,9 @@ export function MissionSection() {
           transition={{ duration: 0.65 }}
         >
           <ChapterHeader
-            chapter="01"
-            title="THE PROLOGUE"
-            page="P. 04–05"
-            subtitle="Three areas of discipline and ongoing curiosity that define my engineering journey."
+            label="EXPERTISE"
+            title="WHAT I EXPLORE"
+            subtitle="Three things I keep coming back to."
           />
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
             What I Explore & Build
@@ -34,19 +32,31 @@ export function MissionSection() {
         >
           {[
             {
-              num: '§ 01',
+              num: '01',
               title: 'Software Development',
-              body: 'I develop web applications and software systems using Python, JavaScript, React, Flask, HTML, and CSS. I enjoy crafting practical interfaces with sensible logic and responsive, tactile interactions.',
+              body: (
+                <>
+                  I like building things with code, but the creative side pulls me in just as much. How something looks and feels matters to me as much as how it works.
+                </>
+              ),
             },
             {
-              num: '§ 02',
-              title: 'Engineering & Embedded',
-              body: 'My engineering background spans embedded systems, wireless communications, and signal processing. I am passionate about how code translates to real hardware and signals in physical space.',
+              num: '02',
+              title: 'Engineering',
+              body: (
+                <>
+                  My background is in Electrical and Computer Engineering: embedded systems, wireless communication, signal processing. Still learning more about all of it, one project at a time.
+                </>
+              ),
             },
             {
-              num: '§ 03',
+              num: '03',
               title: 'Data & Intelligent Systems',
-              body: 'I explore artificial intelligence, data analytics, and intelligent systems—investigating how data-driven techniques and algorithms can assist in solving real engineering problems.',
+              body: (
+                <>
+                  Lately I&apos;ve been getting into data and AI. Mostly curious how they actually solve real problems, not just how they sound on paper.
+                </>
+              ),
             },
           ].map((card, i) => (
             <div
@@ -55,7 +65,6 @@ export function MissionSection() {
             >
               <div className="flex items-center gap-2 font-mono text-[9px] tracking-[0.25em] text-emerald uppercase font-semibold">
                 <span>{card.num}</span>
-                <span className="text-dim/60">·</span>
                 <span>ENTRY 0{i + 1}</span>
               </div>
               <h3 className="font-display text-2xl font-light text-soft-white">
@@ -68,14 +77,13 @@ export function MissionSection() {
           ))}
         </motion.div>
 
-        {/* Editorial author note / inscription */}
         <div className="mt-16 rounded-xl border border-border/70 bg-panel/35 p-6 md:p-8 relative">
           <div className="flex items-center gap-2 text-emerald text-[9px] font-mono tracking-[0.2em] uppercase mb-3">
             <StarMark size={11} color="#B4573D" />
-            <span>Author&apos;s Premise</span>
+            <span>My Approach</span>
           </div>
           <p className="font-display text-lg md:text-xl font-light italic leading-relaxed text-soft-white/90">
-            &ldquo;{ENGINEER.objective}&rdquo;
+            I like poking around different corners of tech: building things, designing for the web, figuring out how it all fits together.
           </p>
         </div>
       </div>

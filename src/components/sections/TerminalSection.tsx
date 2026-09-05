@@ -128,15 +128,15 @@ export function TerminalSection() {
           <div className="mb-5 flex items-center justify-between border-b border-border/50 pb-3">
             <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.26em] text-muted">
               <span className="text-emerald">✦</span>
-              <span>APPENDIX // INTERACTIVE MARGINALIA</span>
+              <span>TERMINAL // INTERACTIVE TOOLS</span>
             </div>
-            <div className="font-mono text-[9px] tracking-[0.22em] text-dim">APP. 01</div>
+            <div className="font-mono text-[9px] tracking-[0.22em] text-dim">CLI. 01</div>
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
-            The Appendix
+            Interactive Terminal
           </h2>
           <p className="mt-3 max-w-xl text-sm text-muted">
-            An interactive terminal tucked into the back pages. Type <em>help</em> to see all available commands.
+            Explore the portfolio through an interactive terminal. Type <em>help</em> to see all available commands.
           </p>
         </motion.div>
 
@@ -154,7 +154,7 @@ export function TerminalSection() {
             <span className="h-2.5 w-2.5 rounded-full bg-border" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald/50" />
             <span className="ml-3 font-plex text-[10px] tracking-[0.2em] text-dim">
-              hawi_os — zsh — 80×24
+              hawi_os / zsh / 80×24
             </span>
           </div>
 

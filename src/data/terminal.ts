@@ -51,7 +51,7 @@ export function resolveCommand(raw: string): TerminalLine[] {
   if (full === 'sudo hire hawi' || full === 'sudo hire Hawi'.toLowerCase()) {
     return [
       { type: 'success', text: 'Access granted.' },
-      { type: 'system', text: 'Thanks for your interest — let\'s talk.' },
+      { type: 'system', text: 'Thanks for your interest. Let\'s talk.' },
     ]
   }
 
@@ -62,7 +62,7 @@ export function resolveCommand(raw: string): TerminalLine[] {
   switch (cmd) {
     case 'help':
       return [
-        { type: 'system', text: 'HAWI_OS terminal — available commands:' },
+        { type: 'system', text: 'HAWI_OS terminal. Available commands:' },
         {
           type: 'output',
           text: TERMINAL_COMMANDS.filter((c) => c !== 'sudo' && c !== 'echo')

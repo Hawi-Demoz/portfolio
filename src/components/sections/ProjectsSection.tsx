@@ -22,10 +22,9 @@ export function ProjectsSection() {
           viewport={{ once: true, margin: '-60px' }}
         >
           <ChapterHeader
-            chapter="04"
-            title="EXHIBITION PLATES"
-            page="P. 10–13"
-            subtitle="A curated collection of selected engineering and software works, presented as book plates."
+            label="PROJECTS"
+            title="SELECTED WORK"
+            subtitle="A few projects I&apos;ve built along the way."
           />
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
             Selected Works
@@ -48,13 +47,13 @@ export function ProjectsSection() {
               onClick={() => setSelected(m)}
               className="group relative rounded-xl border border-border/70 bg-panel/40 p-5 text-left transition-all hover:border-emerald/35 hover:bg-panel/70 hover:shadow-md cursor-pointer"
             >
-              {/* Plate corner marks */}
+              {/* Corner marks */}
               <span className="absolute -top-px -left-px h-2.5 w-2.5 border-t border-l border-emerald/35 rounded-tl-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="absolute -top-px -right-px h-2.5 w-2.5 border-t border-r border-emerald/35 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="absolute -bottom-px -left-px h-2.5 w-2.5 border-b border-l border-emerald/35 rounded-bl-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="absolute -bottom-px -right-px h-2.5 w-2.5 border-b border-r border-emerald/35 rounded-br-xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              {/* Plate header */}
+              {/* Project header */}
               <div className="flex items-start justify-between gap-2 mb-4">
                 <div className="flex items-center gap-2.5">
                   <div className="flex items-center justify-center w-8 h-8 rounded-md border border-border/60 bg-panel-elevated/50 shrink-0">
@@ -64,7 +63,7 @@ export function ProjectsSection() {
                   </div>
                   <div>
                     <div className="font-mono text-[8px] tracking-[0.22em] text-muted uppercase">
-                      PLATE {m.id}
+                      PROJECT {m.id}
                     </div>
                     <div className="mt-0.5 font-display text-xl font-light tracking-wide text-soft-white group-hover:text-emerald transition-colors leading-tight">
                       {m.title}
@@ -84,7 +83,7 @@ export function ProjectsSection() {
                 {m.brief}
               </p>
 
-              {/* Plate tech tags */}
+              {/* Project tech tags */}
               <div className="flex flex-wrap gap-1.5">
                 {m.technologies.slice(0, 3).map((t) => (
                   <span
@@ -101,10 +100,10 @@ export function ProjectsSection() {
                 )}
               </div>
 
-              {/* Read prompt */}
+              {/* Project prompt */}
               <div className="mt-4 flex items-center gap-1.5 text-emerald opacity-0 group-hover:opacity-100 transition-opacity">
                 <StarMark size={8} color="#B4573D" />
-                <span className="font-mono text-[8px] tracking-[0.18em] uppercase">Read plate →</span>
+                <span className="font-mono text-[8px] tracking-[0.18em] uppercase">View project →</span>
               </div>
             </motion.button>
           ))}
@@ -118,7 +117,7 @@ export function ProjectsSection() {
           className="mt-10 flex items-center gap-4 font-mono text-[8.5px] tracking-[0.2em] text-dim uppercase"
         >
           <HandDrawnDivider className="flex-1 text-border" />
-          <span className="shrink-0">{MISSIONS.length} plates in this chapter</span>
+          <span className="shrink-0">{MISSIONS.length} projects</span>
           <HandDrawnDivider className="flex-1 text-border" />
         </motion.div>
       </div>

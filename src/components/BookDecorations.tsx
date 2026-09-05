@@ -90,35 +90,26 @@ export function PlateCorners() {
   )
 }
 
-/** Standardized editorial chapter heading badge */
+/** Standardized editorial section heading badge */
 export function ChapterHeader({
-  chapter,
+  label,
   title,
-  page,
   subtitle,
 }: {
-  chapter: string
+  label: string
   title: string
-  page?: string
   subtitle?: string
 }) {
   return (
     <div className="mb-6">
       <div className="flex flex-wrap items-center gap-3">
         <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-emerald font-semibold">
-          CHAPTER {chapter}
+          {label}
         </span>
         <span className="text-dim/60 font-mono text-[9px]">/</span>
         <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
           {title}
         </span>
-        {page && (
-          <>
-            <span className="ml-auto hidden sm:inline-block font-mono text-[9px] tracking-[0.2em] text-dim/70">
-              [ {page} ]
-            </span>
-          </>
-        )}
       </div>
       {subtitle && (
         <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-muted">

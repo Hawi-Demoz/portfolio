@@ -12,19 +12,17 @@ export function ResearchSection() {
           viewport={{ once: true }}
         >
           <ChapterHeader
-            chapter="05"
-            title="FIELD NOTES & STUDY"
-            page="P. 14–15"
-            subtitle="Ongoing explorations, ideas in the margin, and engineering subjects I am actively studying."
+            label="HOBBIES"
+            title="INTERESTS & STUDY"
+            subtitle="Stuff I&apos;m reading into and thinking about right now."
           />
           <h2 className="font-display text-4xl md:text-5xl font-light italic tracking-tight text-soft-white">
-            Research Notes
+            Hobbies
           </h2>
         </motion.div>
 
         <HandDrawnDivider className="my-8 text-emerald" />
 
-        {/* Notebook-style entries */}
         <div className="space-y-0">
           {RESEARCH.map((r, i) => (
             <motion.div
@@ -35,7 +33,6 @@ export function ResearchSection() {
               transition={{ delay: i * 0.1 }}
               className="relative grid md:grid-cols-[200px_1fr] gap-4 md:gap-10 py-7 border-b border-border/50 last:border-b-0"
             >
-              {/* Margin / note marker */}
               <div className="flex md:flex-col gap-2 md:gap-3">
                 <div className="flex items-center gap-2">
                   <StarMark size={9} color="#B4573D" />
@@ -44,7 +41,7 @@ export function ResearchSection() {
                   </span>
                 </div>
                 <span className="font-mono text-[8px] tracking-[0.18em] text-dim">
-                  Note {String(i + 1).padStart(2, '0')}
+                  Topic {String(i + 1).padStart(2, '0')}
                 </span>
               </div>
 
@@ -75,7 +72,7 @@ export function ResearchSection() {
           className="mt-10 rounded-xl border border-border/50 bg-panel/25 px-5 py-4"
         >
           <p className="font-mono text-[8.5px] tracking-[0.22em] text-dim uppercase">
-            § Margin Note — This chapter is a living document. Studies and research areas are updated as new engineering interests and projects emerge.
+            § Current Focus. I&apos;ll keep adding to this as new things catch my interest.
           </p>
         </motion.div>
       </div>
