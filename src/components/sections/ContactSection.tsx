@@ -6,11 +6,35 @@ import { ENGINEER } from '../../data/content'
 export function ContactSection() {
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const [contactError, setContactError] = useState('')
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const name = String(formData.get('name') ?? '').trim()
+    const contact = String(formData.get('contact') ?? '').trim()
+    const message = String(formData.get('message') ?? '').trim()
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)
+    const isTelegram = /^@?[a-zA-Z0-9_]{5,32}$/.test(contact)
+
+    if (!isEmail && !isTelegram) {
+      setContactError('Enter a valid email address or Telegram username.')
+      return
+    }
+
+    setContactError('')
     setSending(true)
     window.setTimeout(() => {
+      const contactLabel = isEmail ? 'Email' : 'Telegram'
+      const body = `Name: ${name}\n${contactLabel}: ${contact}\n\n${message}`
+
+      if (isEmail) {
+        window.location.href = `mailto:${ENGINEER.links.email}?subject=${encodeURIComponent(`Portfolio message from ${name}`)}&body=${encodeURIComponent(body)}`
+      } else {
+        const telegramUsername = ENGINEER.links.telegram.split('/').pop()
+        window.open(`https://t.me/${telegramUsername}?text=${encodeURIComponent(body)}`, '_blank', 'noopener,noreferrer')
+      }
+
       setSending(false)
       setSent(true)
     }, 900)
@@ -67,14 +91,14 @@ export function ContactSection() {
               </label>
               <label className="block">
                 <span className="font-mono text-[9px] tracking-[0.22em] text-muted uppercase">
-                  Email Address
+                  Email or Telegram Username
                 </span>
                 <input
                   required
-                  type="email"
-                  name="email"
+                  type="text"
+                  name="contact"
                   className="mt-1.5 w-full border-b border-border/80 bg-transparent py-3 font-sans text-sm text-soft-white outline-none transition focus:border-emerald placeholder:text-dim/60"
-                  placeholder="your@email.com"
+                  placeholder="your@email.com / @username"
                 />
               </label>
               <label className="block">
@@ -89,6 +113,12 @@ export function ContactSection() {
                   placeholder="Write your message here..."
                 />
               </label>
+
+              {contactError && (
+                <p className="font-mono text-[9px] tracking-[0.14em] text-red-300">
+                  {contactError}
+                </p>
+              )}
 
               <button
                 type="submit"
@@ -124,7 +154,7 @@ export function ContactSection() {
               </p>
               <div className="space-y-3">
                 {[
-                  { label: 'Method', value: 'Email' },
+                  { label: 'Method', value: 'Email / Telegram' },
                   { label: 'Response time', value: '1 to 2 days' },
                   { label: 'Name', value: ENGINEER.name },
                 ].map((row) => (
@@ -146,6 +176,7 @@ export function ContactSection() {
                   { label: 'GitHub', href: ENGINEER.links.github },
                   { label: 'LinkedIn', href: ENGINEER.links.linkedin },
                   { label: 'Email', href: `mailto:${ENGINEER.links.email}` },
+                  { label: 'Telegram', href: ENGINEER.links.telegram },
                 ].map((link) => (
                   <a
                     key={link.label}

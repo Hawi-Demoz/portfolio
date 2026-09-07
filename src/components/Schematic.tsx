@@ -27,7 +27,7 @@ export function Schematic({ onNavigate }: Props) {
           </div>
           <div className="mb-12 max-w-2xl">
             <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-emerald font-semibold">SCHEMATIC</p>
-            <h1 className="font-display text-6xl font-light italic tracking-tight text-soft-white md:text-8xl">A map of the work</h1>
+            <h1 className="font-display text-6xl font-light italic tracking-tight text-soft-white md:text-8xl">HI</h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">Welcome to my portfolio : )</p>
           </div>
         </motion.div>

@@ -3,18 +3,6 @@ import heroIllustration from '../../assets/hero-illustration.jpg'
 import { ENGINEER } from '../../data/content'
 import { ChapterHeader, HandDrawnDivider, StarMark } from '../BookDecorations'
 
-const fields = [
-  { label: 'Name', value: ENGINEER.name },
-  { label: 'Role', value: ENGINEER.role },
-  { label: 'Field', value: ENGINEER.division },
-  {
-    label: 'Focus areas',
-    value: ENGINEER.specializations.join(' · '),
-  },
-  { label: 'Current project', value: ENGINEER.currentMission },
-  { label: 'Availability', value: ENGINEER.clearance },
-]
-
 export function AboutSection() {
   return (
     <section id="engineer" className="relative section-pad">
@@ -82,33 +70,12 @@ export function AboutSection() {
               </div>
 
               <div className="mt-6 pt-5 border-t border-border/50 font-mono text-[8.5px] tracking-[0.18em] text-dim italic">
-                Currently: {ENGINEER.currentMission}
+                Currently learning: Data Analysis &amp; Machine Learning
               </div>
             </div>
           </motion.div>
 
-              {/* Right: profile details */}
           <div>
-            <div className="divide-y divide-border/50">
-              {fields.map((f, i) => (
-                <motion.div
-                  key={f.label}
-                  initial={{ opacity: 0, x: 12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06, duration: 0.45 }}
-                  className="grid grid-cols-[110px_1fr] gap-4 py-4"
-                >
-                  <span className="font-mono text-[9px] tracking-[0.22em] text-muted uppercase self-start mt-0.5">
-                    {f.label}
-                  </span>
-                  <span className="font-sans text-sm text-soft-white/90 leading-relaxed">
-                    {f.value}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -120,9 +87,19 @@ export function AboutSection() {
                 § Personal Note
               </p>
               <p className="font-display text-base md:text-lg font-light italic leading-relaxed text-soft-white/85">
-                I&apos;m an engineer, sure, but underneath that I just really love noticing things, little details, colors, the stuff that makes something feel unique instead of generic. That&apos;s what I try to bring into everything I build.
+                I notice details most people scroll past. Colors, small choices, the stuff that makes something feel intentional instead of generic. That&apos;s usually what pulls me into a project.
               </p>
             </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="mt-6 font-mono text-[8.5px] tracking-[0.18em] text-dim"
+            >
+              Availability: Open to software development, engineering, data, and technology opportunities.
+            </motion.p>
           </div>
         </div>
       </div>

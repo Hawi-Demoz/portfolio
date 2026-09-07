@@ -33,7 +33,6 @@ export const ENGINEER = {
   ],
   specializations: [
     'Software Development',
-    'Web Applications',
     'Embedded Systems',
     'Signal Processing',
     'Wireless Communication',
@@ -44,9 +43,10 @@ export const ENGINEER = {
   objective:
     'I am an Electrical and Computer Engineer interested in building practical software and engineering solutions. My work and projects explore web development, embedded systems, signal processing, wireless communication, artificial intelligence, and data analysis.',
   links: {
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-    email: 'hawi@mission.control',
+    github: 'https://github.com/Hawi-Demoz',
+    linkedin: 'https://www.linkedin.com/in/hawi-demoz',
+    email: 'hawidemoz@gmail.com',
+    telegram: 'https://t.me/egziharia',
     resume: '/resume.pdf',
   },
 }
