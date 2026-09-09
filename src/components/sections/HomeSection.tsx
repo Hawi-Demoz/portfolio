@@ -41,11 +41,11 @@ export function HomeSection() {
 
             <h2 className="mt-8 max-w-xl font-sans text-2xl font-medium leading-snug text-soft-white md:text-4xl">
               I&apos;m Hawi, an{' '}
-              <span className="font-display text-[1.45em] italic font-light text-soft-white">
+              <span className="font-sans text-[1.1em] font-bold text-soft-white">
                 Electrical & Computer Engineer
               </span>{' '}
               and{' '}
-              <span className="font-display text-[1.45em] italic font-light text-soft-white">
+              <span className="font-sans text-[1.1em] font-bold text-soft-white">
                 Software Developer
               </span>
               .

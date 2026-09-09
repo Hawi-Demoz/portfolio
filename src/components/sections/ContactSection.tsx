@@ -29,7 +29,8 @@ export function ContactSection() {
       const body = `Name: ${name}\n${contactLabel}: ${contact}\n\n${message}`
 
       if (isEmail) {
-        window.location.href = `mailto:${ENGINEER.links.email}?subject=${encodeURIComponent(`Portfolio message from ${name}`)}&body=${encodeURIComponent(body)}`
+        const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(ENGINEER.links.email)}&su=${encodeURIComponent(`Portfolio message from ${name}`)}&body=${encodeURIComponent(body)}`
+        window.location.href = gmailComposeUrl
       } else {
         const telegramUsername = ENGINEER.links.telegram.split('/').pop()
         window.open(`https://t.me/${telegramUsername}?text=${encodeURIComponent(body)}`, '_blank', 'noopener,noreferrer')
