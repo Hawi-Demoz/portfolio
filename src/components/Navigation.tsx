@@ -25,9 +25,6 @@ export function Navigation({ active, onNavigate, open, onToggle }: Props) {
                 <span className="text-emerald text-[9px]">✦</span>
                 <span className="text-muted text-[8.5px] font-normal tracking-[0.2em]">PORTFOLIO</span>
               </div>
-              <div className="font-mono text-[8px] tracking-[0.26em] text-dim">
-                ILLUSTRATED ENGINEERING & SOFTWARE PORTFOLIO
-              </div>
             </div>
           </button>
 

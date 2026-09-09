@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BootSequence } from './components/BootSequence'
 import { Navigation } from './components/Navigation'
@@ -10,12 +10,14 @@ import { ContactSection } from './components/sections/ContactSection'
 import { DossierSection } from './components/sections/DossierSection'
 import { MissionSection } from './components/sections/MissionSection'
 import { ProjectsSection } from './components/sections/ProjectsSection'
-import { ResearchSection } from './components/sections/ResearchSection'
+import { CreativeSection } from './components/sections/CreativeSection'
 import { SkillsSection } from './components/sections/SkillsSection'
 import { TerminalSection } from './components/sections/TerminalSection'
 import { useKonami } from './hooks/useKonami'
-import { pathForSection, sectionForPath, usePathname } from './router'
+import { pathForSection, ROUTES, sectionForPath, usePathname } from './router'
 import type { SectionId } from './data/content'
+
+const SWIPE_ORDER: SectionId[] = ['command', ...ROUTES.map((route) => route.id)]
 
 function SectionContent({ id, onNavigate }: { id: SectionId; onNavigate: (id: SectionId) => void }) {
   if (id === 'command') return <Schematic onNavigate={onNavigate} />
@@ -24,7 +26,7 @@ function SectionContent({ id, onNavigate }: { id: SectionId; onNavigate: (id: Se
     engineer: <AboutSection />,
     systems: <SkillsSection />,
     projects: <ProjectsSection />,
-    research: <ResearchSection />,
+    research: <CreativeSection />,
     terminal: <TerminalSection />,
     contact: <ContactSection />,
     dossier: <DossierSection />,
@@ -38,6 +40,7 @@ export default function App() {
   const [booted, setBooted] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [secret, setSecret] = useState<string | null>(null)
+  const touchStart = useRef<{ x: number; y: number; target: Element | null } | null>(null)
   const onBootComplete = useCallback(() => setBooted(true), [])
 
   useKonami(() => {
@@ -45,7 +48,7 @@ export default function App() {
     window.setTimeout(() => setSecret(null), 4200)
   })
 
-  const navigate = (id: SectionId) => {
+  const navigate = useCallback((id: SectionId) => {
     const path = pathForSection(id)
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path)
@@ -53,7 +56,51 @@ export default function App() {
     }
     setMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  }, [])
+
+  useEffect(() => {
+    const onTouchStart = (event: globalThis.TouchEvent) => {
+      const touch = event.changedTouches[0]
+      const target = event.target instanceof Element ? event.target : null
+      touchStart.current = {
+        x: touch.clientX,
+        y: touch.clientY,
+        target,
+      }
+    }
+
+    const onTouchEnd = (event: globalThis.TouchEvent) => {
+      if (!touchStart.current) return
+
+      const start = touchStart.current
+      const touch = event.changedTouches[0]
+      touchStart.current = null
+
+      if (start.target?.closest('a, button, input, textarea, select, [role="button"]')) return
+
+      const deltaX = touch.clientX - start.x
+      const deltaY = touch.clientY - start.y
+      if (Math.abs(deltaX) < 60 || Math.abs(deltaX) <= Math.abs(deltaY)) return
+
+      const currentIndex = SWIPE_ORDER.indexOf(active)
+      const nextIndex = currentIndex + (deltaX < 0 ? 1 : -1)
+      const nextSection = SWIPE_ORDER[nextIndex]
+      if (nextSection) navigate(nextSection)
+    }
+
+    const onTouchCancel = () => {
+      touchStart.current = null
+    }
+
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchend', onTouchEnd, { passive: true })
+    window.addEventListener('touchcancel', onTouchCancel, { passive: true })
+    return () => {
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchend', onTouchEnd)
+      window.removeEventListener('touchcancel', onTouchCancel)
+    }
+  }, [active, navigate])
 
   return (
     <>
@@ -63,7 +110,9 @@ export default function App() {
       {booted && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }} className="relative z-10">
           <Navigation active={active} onNavigate={navigate} open={menuOpen} onToggle={() => setMenuOpen((value) => !value)} />
-          <main><SectionContent id={active} onNavigate={navigate} /></main>
+          <main style={{ touchAction: 'pan-y' }}>
+            <SectionContent id={active} onNavigate={navigate} />
+          </main>
         </motion.div>
       )}
       <AnimatePresence>

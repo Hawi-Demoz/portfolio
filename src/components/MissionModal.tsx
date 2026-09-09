@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, ExternalLink, GitBranch } from 'lucide-react'
 import type { Mission } from '../data/content'
@@ -9,6 +10,8 @@ type Props = {
 }
 
 export function MissionModal({ mission, onClose }: Props) {
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({})
+
   return (
     <AnimatePresence>
       {mission && (
@@ -33,7 +36,7 @@ export function MissionModal({ mission, onClose }: Props) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-            className="glass relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-t-md border border-border sm:rounded-sm"
+            className="glass relative z-10 max-h-[calc(100dvh-1rem)] w-full max-w-4xl overflow-y-auto rounded-t-md border border-border sm:max-h-[calc(100dvh-3rem)] sm:rounded-sm"
           >
             <div className="sticky top-0 flex items-start justify-between gap-4 border-b border-border-soft bg-panel/90 px-5 py-4 backdrop-blur-md">
               <div>
@@ -58,6 +61,36 @@ export function MissionModal({ mission, onClose }: Props) {
             </div>
 
             <div className="space-y-8 px-5 py-6">
+              {mission.images && (
+                <section className="space-y-3">
+                  <h4 className="eyebrow">Project screens</h4>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {mission.images.map((image, index) => (
+                      <div
+                        key={image.src}
+                        className="overflow-hidden rounded-md border border-border bg-panel-elevated"
+                      >
+                        <div className="relative aspect-[16/9] w-full">
+                          {!failedImages[image.src] ? (
+                            <img
+                              src={image.src}
+                              alt={image.alt}
+                              className="block h-full w-full object-contain"
+                              loading={index === 0 ? 'eager' : 'lazy'}
+                              onError={() => setFailedImages((current) => ({ ...current, [image.src]: true }))}
+                            />
+                          ) : (
+                            <div className="flex h-full items-center justify-center px-4 text-center font-mono text-[9px] tracking-[0.12em] text-dim uppercase">
+                              Add {image.src.replace('/', '')} to public
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
               <section>
                 <h4 className="eyebrow mb-2">Overview</h4>
                 <p className="text-sm leading-relaxed text-soft-white/85">
@@ -80,29 +113,35 @@ export function MissionModal({ mission, onClose }: Props) {
               </section>
 
               <section>
-                <h4 className="eyebrow mb-3">Tools used</h4>
-                <div className="flex flex-wrap gap-2">
-                  {mission.technologies.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-sm border border-border px-2.5 py-1 font-plex text-[10px] tracking-[0.14em] text-cyan/80"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                <h4 className="eyebrow mb-3">Built with</h4>
+                {mission.stackDescription ? (
+                  <p className="text-sm leading-relaxed text-muted">{mission.stackDescription}</p>
+                ) : (
+                  <div className="flex flex-wrap gap-2">
+                    {mission.technologies.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-sm border border-border px-2.5 py-1 font-plex text-[10px] tracking-[0.14em] text-cyan/80"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </section>
 
-              <section>
-                <h4 className="eyebrow mb-3">Challenges</h4>
-                <ul className="space-y-2">
-                  {mission.challenges.map((c) => (
-                    <li key={c} className="text-sm text-muted">
-                      ▸ {c}
-                    </li>
-                  ))}
-                </ul>
-              </section>
+              {mission.challenges && (
+                <section>
+                  <h4 className="eyebrow mb-3">Challenges</h4>
+                  <ul className="space-y-2">
+                    {mission.challenges.map((c) => (
+                      <li key={c} className="text-sm text-muted">
+                        ▸ {c}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
               <div className="flex flex-wrap gap-3 pt-2">
                 {mission.github && (

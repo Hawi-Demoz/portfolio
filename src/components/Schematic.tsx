@@ -8,7 +8,7 @@ const teasers: Record<Exclude<SectionId, 'command'>, string> = {
   engineer: 'A brief introduction to the engineer and developer behind the work.',
   systems: 'The tools and areas I actually use to get things done.',
   projects: 'A few projects I\'ve built along the way.',
-  research: 'Stuff I\'m reading into and thinking about right now.',
+  research: 'Writing, design, reading notes, and photographs outside the engineering work.',
   terminal: 'Explore the portfolio through an interactive terminal.',
   contact: 'Say hi, or tell me about something you\'re working on.',
   dossier: 'Education, projects, and experience, in one document.',

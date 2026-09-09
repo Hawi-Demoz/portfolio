@@ -66,6 +66,7 @@ export function DossierSection() {
 
             <a
               href={ENGINEER.links.resume}
+              download="Hawi-Demoz-Resume.pdf"
               className="btn-transmit inline-flex items-center gap-2.5 rounded-lg border border-emerald/50 bg-emerald/10 px-6 py-3.5 font-mono text-[9px] tracking-[0.22em] text-emerald cursor-pointer hover:bg-emerald/15 transition-all shrink-0"
             >
               <Download size={12} />

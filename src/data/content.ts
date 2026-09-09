@@ -54,15 +54,15 @@ export const ENGINEER = {
 export const SKILLS = [
   {
     group: 'Programming & Web Development',
-    items: ['Python', 'JavaScript', 'HTML5', 'CSS3', 'React', 'Flask', 'Tailwind CSS'],
+    items: ['Python', 'JavaScript', 'TypeScript', 'React', 'Angular', 'FastAPI', 'Flask', 'Tailwind CSS'],
   },
   {
     group: 'Engineering & Technical Areas',
-    items: ['Embedded Systems', 'Signal Processing', 'Audio Steganography', 'Wireless Network Planning', 'Data Analysis', 'MATLAB'],
+    items: ['Embedded Systems', 'Signal Processing', 'Wireless Network Planning', 'Data Analysis', 'MATLAB'],
   },
   {
     group: 'Tools',
-    items: ['Git', 'GitHub', 'VS Code', 'Figma'],
+    items: ['Git', 'GitHub', 'Figma'],
   },
   {
     group: 'Professional Skills',
@@ -78,7 +78,9 @@ export type Mission = {
   brief: string
   objectives: string[]
   technologies: string[]
-  challenges: string[]
+  stackDescription?: string
+  challenges?: string[]
+  images?: { src: string; alt: string }[]
   github?: string
   demo?: string
 }
@@ -88,7 +90,7 @@ export const MISSIONS: Mission[] = [
     id: '01',
     code: 'MSN-01',
     title: 'Adaptive Audio Steganography',
-    status: 'ACTIVE',
+    status: 'COMPLETE',
     brief:
       'Designing an adaptive audio steganography system that securely embeds secret information into digital audio while preserving sound quality. The project explores adaptive embedding techniques and evaluates performance using signal quality metrics.',
     objectives: [
@@ -96,39 +98,43 @@ export const MISSIONS: Mission[] = [
       'Explore adaptive methods for reliable data hiding in digital audio',
       'Evaluate the system using signal quality metrics and practical testing',
     ],
-    technologies: ['Python', 'MATLAB', 'Signal Processing', 'Audio Steganography', 'Digital Audio'],
+    technologies: ['Python', 'React'],
     challenges: [
       'Balancing data capacity with audio quality',
       'Maintaining reliable embedding under common signal changes',
       'Evaluating how well the method performs in practice',
     ],
-    github: 'https://github.com',
+    github: 'https://github.com/Hawi-Demoz/adaptive_steganography',
+    demo: 'https://adaptive-steganography-aojk.vercel.app/',
   },
   {
     id: '02',
     code: 'MSN-02',
-    title: 'Urban Indexing & Data Analysis Project',
-    status: 'COMPLETE',
+    title: 'Muse',
+    status: 'ACTIVE',
     brief:
-      'Developed a data analysis system for organizing and indexing urban infrastructure data to support planning and development decisions.',
+      'A creative collaboration and project-management platform for visual folios, shared work, deliverables, creator profiles, and direct collaboration.',
     objectives: [
-      'Organize urban data into a structured and usable format',
-      'Support analysis for planning and decision-making',
-      'Improve access to key information for infrastructure-related work',
+      'Give creative projects a structured home through visual folios and tasks',
+      'Support creator discovery, team roles, and collaboration requests',
+      'Keep project communication and deliverables connected in one workspace',
     ],
-    technologies: ['Python', 'Data Analysis', 'Structured Data', 'Visualization', 'Reporting'],
-    challenges: [
-      'Sorting and standardizing varied urban data sources',
-      'Making analysis useful for planning tasks',
-      'Turning raw information into a clear, practical system',
+    technologies: ['Angular', 'FastAPI', 'PostgreSQL', 'JWT Auth', 'pytest'],
+    stackDescription:
+      'Built with Angular 19 using standalone components and signals on the frontend, with TypeScript and Tailwind CSS shaping the interface. The FastAPI backend uses SQLAlchemy 2.0 with PostgreSQL in production and SQLite as a local fallback, alongside JWT authentication, role-based access control, and pytest coverage for the core backend workflows.',
+    images: [
+      { src: '/landing.jpg', alt: 'Muse landing page introducing the creative collaboration studio' },
+      { src: '/folio.jpg', alt: 'Muse creative folios workspace with project cards' },
+      { src: '/message1.jpg', alt: 'Muse messages view showing a collaboration conversation' },
+      { src: '/message2.jpg', alt: 'Muse conversation view with project collaboration messages' },
     ],
-    github: 'https://github.com',
+    github: 'https://github.com/Hawi-Demoz/muse',
   },
   {
     id: '03',
     code: 'MSN-03',
     title: 'Wireless Cellular Network Planner',
-    status: 'COMPLETE',
+    status: 'ACTIVE',
     brief:
       'Designed a wireless cellular network planning system that analyzes coverage requirements, cell placement, frequency reuse, and network capacity to improve communication efficiency.',
     objectives: [
@@ -136,13 +142,14 @@ export const MISSIONS: Mission[] = [
       'Study capacity, reuse, and network efficiency considerations',
       'Explore practical network planning concepts for communication systems',
     ],
-    technologies: ['Wireless Communication', 'Network Planning', 'Coverage Analysis', 'MATLAB', 'Radio Concepts'],
+    technologies: [],
     challenges: [
       'Balancing coverage needs with capacity constraints',
       'Understanding practical trade-offs in cell placement',
       'Modeling planning decisions in a clear, testable way',
     ],
-    github: 'https://github.com',
+    github: 'https://github.com/Hawi-Demoz/myCellular-Planner',
+    demo: 'https://my-cellular-planner.vercel.app/',
   },
   {
     id: '04',
