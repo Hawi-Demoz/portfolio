@@ -97,7 +97,7 @@ export function AboutSection() {
                 § Personal Note
               </p>
               <p className="font-display text-base md:text-lg font-light italic leading-relaxed text-soft-white/85">
-                I notice details most people scroll past. Colors, small choices, the stuff that makes something feel intentional instead of generic. That&apos;s usually what pulls me into a project.
+                I care about the small stuff : spacing, color, the details that make something feel intentional instead of generic..
               </p>
             </motion.div>
 

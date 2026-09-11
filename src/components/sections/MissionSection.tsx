@@ -83,7 +83,7 @@ export function MissionSection() {
             <span>My Approach</span>
           </div>
           <p className="font-display text-lg md:text-xl font-light italic leading-relaxed text-soft-white/90">
-            I like poking around different corners of tech: building things, designing for the web, figuring out how it all fits together.
+            I like getting my hands into different corners of tech : building, designing for the web, figuring out how the pieces fit together.
           </p>
         </div>
       </div>
